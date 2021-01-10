@@ -1,6 +1,8 @@
 \documentclass[10pt,t]{beamer}
 \usetheme{Heverlee}
 
+\usepackage{tikz-cd}
+
 
 %%% QUICK OPTIONS:
 % (A) Math font without serifs, enable line below to make math serif:
@@ -27,20 +29,18 @@
 
 %%% TITLE PAGE INFO:
 
-\title[Heverlee \LaTeX\ Beamer theme]{Heverlee Beamer theme}
-\subtitle{\textbackslash usetheme\{Heverlee\}}
-\author{John Doe}
-\institute{Placeholder University}
-\date{September 2020}
+\title[clesto]{Chain level Steenrod operations}
+\subtitle{Theoretical and computational aspects}
+\author[ammedmar]{Anibal M. Medina-Mardones}
+\institute{Max Planck Institute for Mathematics in Bonn}
+\date{January 2021}
 
 % Text inside {} is used on the title page. Text inside [] is optional, and is used in footline bar (if [] is omitted then text from {} will be used in both ; if [] is specified but left empty then the footline will not show any text)
 
 
-
-
- %%
- %%  0. TITLE PAGE and TABLE OF CONTENT
- %%
+%%
+%%  0. TITLE PAGE and TABLE OF CONTENT
+%%
 \begin{document}
 % Title page
 
@@ -52,7 +52,7 @@
  %   blueprint     columns     library     uyuni
  %   bokeh         flowers     newyork     winter
 
-%\setbeamercolor{background canvas}{bg=lgray}  % make background light gray
+% \setbeamercolor{background canvas}{bg=lgray}  % make background light gray
 
 \begin{frame}[plain,noframenumbering]
     \titlepage
@@ -68,111 +68,93 @@
  %%
  %%  SECTION 1
  %%
-\section{History and motivation}
-
-\begin{frame}{Color palette} \label{sec: history & motivation}
-
-The diagonal map of spaces 
+\section{History and motivation} \label{sec: history and motivation}
 
 
-\begin{itemize}
-	\item black
-	\item \textcolor{pblue}{primary blue} (\texttt{pblue})
-	\begin{itemize}
-	    \item Can be changed by adding to preamble:
-	    \item[ ] \texttt{\textbackslash definecolor\{pblue\}\{RGB\}\{49,130,189\}}
-	\end{itemize}
-	\item \textcolor{white}{white} $\leftarrow$ white, when background is dark
-	\item \textcolor{gray}{50\% gray } for text and \textcolor{lgray}{5\% gray} for background (\texttt{lgray})
+\begin{frame}[fragile]{Diagonal and cup product}
+	The diagonal map of spaces
+	\begin{equation*}
+	\begin{tikzcd}[row sep = tiny]
+	X \arrow[r, "D"] & X \times X \\
+	x \arrow[r, |->]& (x, x)
+	\end{tikzcd}
+	\end{equation*}
+	induces a product in cohomology 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = tiny]
+	H^\bullet(X) \otimes H^\bullet(X) \arrow[r, "\smallsmile"] & H^\bullet(X) \\
+	\end{tikzcd}
+	\end{equation*}
+	which is (graded) commutative, since the diagonal is invariant under the transposition
+	\begin{equation*}
+	\begin{tikzcd}[row sep = tiny]
+	X \times X \arrow[r, "T"] & X \times X \\
+	(x, y) \arrow[r, |->]& (y, x).
+	\end{tikzcd}
+	\end{equation*}
+\end{frame}
 
-	\vspace{5mm}
-	\item if necessary use \textcolor{red}{red text color}  
-	\item red is also default for \alert{alert text}
-\end{itemize}
-\end{frame} 
+
+\begin{frame}[fragile]{Diagonal and cup product}
+	During the mid 1930's Alexander, Kolmogorov, \v{C}ech and Whitney lifted this product to the cochain level by dualizing a chain approximation to the diagonal map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = tiny]
+	C_\bullet(X) \arrow[r, "\Delta"] & C_\bullet(X) \otimes C_\bullet(X).
+	\end{tikzcd}
+	\end{equation*}
+	It is not invariant under the transposition
+	\begin{equation*}
+	\begin{tikzcd}[row sep = tiny]
+	C_\bullet(X) \otimes C_\bullet(X) \arrow[r, "T"] & C_\bullet(X) \otimes C_\bullet(X) \\
+	a \otimes b \arrow[r, |->]& (-1)^{|a||b|} b \otimes a.
+	\end{tikzcd}
+	\end{equation*}
+	But, can it be made to be? Over $\mathbb Q$, yes; over $\mathbb F_p$?
+	
+	\pause
+	\begin{block}{Anachronism warning}
+		The map $\Delta$ was used to \textbf{define} the cup product. At that time, the functoriality properties of (co)homology weren't yet fully developed. \\ See \cite{whitney1935history} for more history about this product.
+	\end{block}
+\end{frame}
 
 
 
-\begin{frame}{Theorems and other blocks}
-	\begin{block}{Title of the bloc}
-	Text for generic block ...
+\begin{frame}{Steenrod's obstructions to commutativity}
+	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_o = $ from now on), given explicitly by
+	
+	\begin{equation*}
+	\Delta_0 [0, \dots, n] = \sum_{i=0}^{n} [0, \dots, i] \otimes [i, \dots, n]
+	\end{equation*}
+	
+	\pause
+	
+	\begin{block}{Recall:}
+		The set of linear maps between chain complexes is a chain complex. Furthermore, chain maps agree with $0$-cycles, and chain homotopies with $1$-boundaries.
 	\end{block}
 
-\vspace{11pt}
-	\begin{exampleblock}{Example block title}
-	Text for example block ...
-	\end{exampleblock}
-
-\vspace{11pt}
-	\begin{alertblock}{Alert block title}
-	Text for alert block ...
-	\end{alertblock}
-\end{frame}
-
-
-
-
-\begin{frame}{Theorems and other blocks}
-Theorem environment
-	\begin{theorem}
-	A theorem is a non-self-evident statement that has been proven to be true.
-	\end{theorem}
-
-\vspace{11pt}
-Definition environment
-	\begin{definition}
-	A definition is a statement of the meaning of a term (a word, phrase, or other set of symbols).
-	\end{definition}
-
-\vspace{11pt}	
-Example environment
-	\begin{example}
-	Something that serves to illustrate or explain a rule.
-	\end{example}
-\end{frame}
-
-
-
-
-\begin{frame}{Theorems and other blocks}
-Proof environment
-	\begin{proof}
-	A mathematical proof is an inferential argument for a mathematical statement, showing that the stated assumptions logically guarantee the conclusion.
-	\end{proof}
+	\pause
 	
-\vspace{11pt}	
-Corollary environment
-	\begin{corollary}
-	A corollary is a theorem of less importance which can be readily deduced from a previous, more notable statement.
-	\end{corollary}
-
+	The chain complex
+	\begin{equation} \label{eq: complex of maps to the tensor product}
+	Hom\left(C_\bullet(X), C_\bullet(X)^{\otimes 2}  \right)
+	\end{equation}
+	has a right $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest
+	\begin{equation*}
+	\Delta_0 - T \Delta_0.
+	\end{equation*}
+	
+	\pause
+	
+	
+	
+	
 \end{frame}
-
-
-
-
-
-
-\begin{frame}{Buttons}
-Standard buttons
-
-	\hyperlink{colorpalette}{\beamergotobutton{Link to frame}}
-
-	\beamerskipbutton{Button with long title and no link}
-
-	\hyperlink{colorpalette}{\beamerreturnbutton{}}
-
-\vspace{11pt}
-These buttons can link to any frame, figure, table, theorem, section, or anything else with a defined label.
-\end{frame}
-
-
-
 
  %%
  %%  SECTION 2 - ITEMIZATION
  %%
-\section{Itemization and enumeration examples} \label{sec:items}
+\section{Itemization and enumeration examples}
+ \label{sec:items}
 \begin{frame}{Itemize}
 (default)
 \begin{itemize}
@@ -485,13 +467,14 @@ To change to serif math everywhere
 \footnotesize{Part in \textcolor{gray}{gray} is is not always necessary. It ensures the images of various sizes will fit and are aligned.}
 \end{frame}
 
+\section*{References}
 
-{
-\setbeamercolor{background canvas}{bg=gray}
-\begin{frame}[c,plain]{}
-    \centering
-    \textcolor{white}{Thank you}
+\begin{frame}%[allowframebreaks]
+	\frametitle{References}
+	
+	\bibliographystyle{amsalpha}
+	\bibliography{biblio.bib}
 \end{frame}
-}
+
 
 \end{document}
