@@ -8,7 +8,7 @@
 
 %%% QUICK OPTIONS:
 % (A) Math font without serifs, enable line below to make math serif:
-    %\usefonttheme[onlymath]{serif}
+    \usefonttheme[onlymath]{serif}
 
 % (B) Re-define primary colour by adjusting the RGB values
     %\definecolor{pblue}	{RGB}{206,125,66}
@@ -37,12 +37,6 @@
 \institute{Max Planck Institute for Mathematics in Bonn}
 \date{January 2021}
 
-% Text inside {} is used on the title page. Text inside [] is optional, and is used in footline bar (if [] is omitted then text from {} will be used in both ; if [] is specified but left empty then the footline will not show any text)
-
-
-%%
-%%  0. TITLE PAGE and TABLE OF CONTENT
-%%
 \begin{document}
 % Title page
 
@@ -67,11 +61,9 @@
 	\hfill	{\large \parbox{.95\textwidth}{\tableofcontents[hideothersubsections]}}
 \end{frame}
 
- %%
- %%  SECTION 1
- %%
-\section{History and motivation} \label{sec: history and motivation}
+%%  SECTION 1
 
+\section{History and motivation} \label{sec: history and motivation}
 
 \begin{frame}[fragile]{Diagonal and cup product}
 	The diagonal map of spaces
@@ -127,9 +119,8 @@
 \end{frame}
 
 
-
 \begin{frame}{Steenrod's obstructions to commutativity}
-	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_o = $ from now on).
+	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_0 = $ from now on).
 	
 	\vspace*{15pt} \pause
 	
@@ -148,10 +139,8 @@
 \end{frame}
 
 
-
 \begin{frame}{Steenrod's obstructions to commutativity}
 	The cup-$1$ coproduct
-	
 	\begin{equation*}
 	\Delta_1 [0, \dots, n] = \sum_{i<j} \pm [0, \dots, i, j, \dots, n] \otimes [i, \dots, j]
 	\end{equation*}
@@ -160,7 +149,6 @@
 	\vspace*{10pt} \pause
 	
 	Steenrod gave formulae for higher corrections, the cup-$i$ coproducts:
-	
 	\begin{equation*}
 	\partial (\Delta_{i+1}) = \Delta_i - (-1)^i T \Delta_i.
 	\end{equation*}
@@ -171,12 +159,11 @@
 	\begin{equation*}
 	W(2) \quad = \quad \mathbb Z[\Sigma_2] \stackrel{\ 1-T}{\longleftarrow} \mathbb Z[\Sigma_2] \stackrel{\ 1+T}{\longleftarrow} \mathbb Z[\Sigma_2] \stackrel{\ 1-T}{\longleftarrow} \cdots
 	\end{equation*}
-	is the minimal free resolution of $\mathbb Z$ as a $\mathbb Z[\Sigma_2]$-module, he effectively constructed an equivariant chain map
+	is the minimal free resolution of $\mathbb Z$ as a $\mathbb Z[\Sigma_2]$-module, \pause he effectively constructed an equivariant chain map
 	\begin{equation*}
 	W(2) \otimes C_\bullet \to C_\bullet^{\otimes 2}.
 	\end{equation*}
 \end{frame}
-
 	
 
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
@@ -220,7 +207,7 @@
 	\vspace*{-5pt}
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep = tiny]
-	C^\bullet \otimes W(2)_{\Sigma_2} \arrow[r] & C^\bullet \\
+	C^\bullet \otimes W(2)_{\Sigma_2} \arrow[r] &[-10pt] C^\bullet \\
 	\alpha \otimes e_i \arrow[r, |->] & (\alpha \otimes \alpha)\Delta_i(-)
 	\end{tikzcd}
 	\end{equation*}
@@ -229,6 +216,31 @@
 	
 	\textcolor{pblue}{Take away:} The mod-2 homology of $\Sigma_2$ defines operations on the mod-2 cohomology of spaces.
 \end{frame}
+
+
+\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+	The Steenrod squares are defined by reindexing the previous map
+	\begin{equation*}
+	\begin{tikzcd}[row sep=tiny, column sep=tiny]
+	Sq^k \colon H^{-n} \arrow[r] & H^{-n-k} \\
+	\phantom{Sq^k \colon}{[\alpha]} \arrow[r, |->] & {\left[(\alpha \otimes \alpha)\Delta_{k-i}(-) \right]}
+	\end{tikzcd}
+	\end{equation*}
+	Their importance in stable homotopy theory is hard to overstate.
+	
+	\begin{block}{As obstructions to commutativity}
+		By the construction, their non-triviality is an obstruction to a \textbf{commutative} product of cochains.
+	\end{block}
+
+	\begin{block}{Cup-$i$ products}
+		Over the integers, the duals of the $\Delta_i$ maps, the cup-$i$ products, are a coherent family of homotopies correcting the broken commutativity of $\smallsmile_0$, a lift of the cup product.
+	\end{block}
+\end{frame}
+
+
+\section{Operads and their algebras}
+
+\section{Examples}
 
 \section*{References}
 
