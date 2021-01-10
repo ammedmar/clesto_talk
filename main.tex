@@ -3,6 +3,8 @@
 
 \usepackage{tikz-cd}
 
+\newcommand{\F}{\mathbb F}
+
 
 %%% QUICK OPTIONS:
 % (A) Math font without serifs, enable line below to make math serif:
@@ -82,7 +84,7 @@
 	induces a product in cohomology 
 	\begin{equation*}
 	\begin{tikzcd}[row sep = tiny]
-	H^\bullet(X) \otimes H^\bullet(X) \arrow[r, "\smallsmile"] & H^\bullet(X) \\
+	H^\bullet \otimes H^\bullet \arrow[r, "\smallsmile"] & H^\bullet \\
 	\end{tikzcd}
 	\end{equation*}
 	which is (graded) commutative, since the diagonal is invariant under the transposition
@@ -96,382 +98,143 @@
 
 
 \begin{frame}[fragile]{Diagonal and cup product}
-	During the mid 1930's Alexander, Kolmogorov, \v{C}ech and Whitney lifted this product to the cochain level by dualizing a chain approximation to the diagonal map
+	During the mid 1930's Alexander, Kolmogorov, \v{C}ech and Whitney lifted this product to the cochain level by dualizing a simplicial chain approximation to the diagonal map
 	\begin{equation*}
-	\begin{tikzcd}[row sep = tiny]
-	C_\bullet(X) \arrow[r, "\Delta"] & C_\bullet(X) \otimes C_\bullet(X).
+	\begin{tikzcd}[%
+	,row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}
+	]
+	C_\bullet \arrow[r, "\Delta"] & C_\bullet \otimes C_\bullet \\
+	{[0, \dots, n]} \arrow[r, |->] & \sum_{i=0}^{n} {[0, \dots, i] \otimes [i, \dots, n]}.
 	\end{tikzcd}
 	\end{equation*}
+
+	\pause
+		
 	It is not invariant under the transposition
 	\begin{equation*}
 	\begin{tikzcd}[row sep = tiny]
-	C_\bullet(X) \otimes C_\bullet(X) \arrow[r, "T"] & C_\bullet(X) \otimes C_\bullet(X) \\
-	a \otimes b \arrow[r, |->]& (-1)^{|a||b|} b \otimes a.
+	C_\bullet \otimes C_\bullet \arrow[r, "T"] & C_\bullet \otimes C_\bullet \\
+	a \otimes b \arrow[r, |->]& (-1)^{|a||b|} b \otimes a,
 	\end{tikzcd}
 	\end{equation*}
-	But, can it be made to be? Over $\mathbb Q$, yes; over $\mathbb F_p$?
+	but, can it be made to be? \pause Over $\mathbb Q$, yes; over $\mathbb F_p$?
 	
-	\pause
-	\begin{block}{Anachronism warning}
-		The map $\Delta$ was used to \textbf{define} the cup product. At that time, the functoriality properties of (co)homology weren't yet fully developed. \\ See \cite{whitney1935history} for more history about this product.
-	\end{block}
+	\vspace*{10pt} \pause
+	
+	\textcolor{pblue}{Anachronism warning:} The map $\Delta$ was used to \textbf{define} the cup product. Functoriality wasn't yet fully developed.
 \end{frame}
 
 
 
 \begin{frame}{Steenrod's obstructions to commutativity}
-	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_o = $ from now on), given explicitly by
+	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_o = $ from now on).
 	
-	\begin{equation*}
-	\Delta_0 [0, \dots, n] = \sum_{i=0}^{n} [0, \dots, i] \otimes [i, \dots, n]
-	\end{equation*}
+	\vspace*{15pt} \pause
 	
-	\pause
-	
-	\begin{block}{Recall:}
-		The set of linear maps between chain complexes is a chain complex. Furthermore, chain maps agree with $0$-cycles, and chain homotopies with $1$-boundaries.
-	\end{block}
+	\textcolor{pblue}{Recall:} The set of linear maps between chain complexes is a chain complex. Furthermore, chain maps agree with $0$-cycles, and chain homotopies with $1$-boundaries.
 
-	\pause
+	\vspace*{15pt}\pause
 	
-	The chain complex
-	\begin{equation} \label{eq: complex of maps to the tensor product}
-	Hom\left(C_\bullet(X), C_\bullet(X)^{\otimes 2}  \right)
-	\end{equation}
+	\textcolor{pblue}{Notice:} The chain complex
+	\begin{equation*} \label{eq: complex of maps to the tensor product}
+	Hom\left(C_\bullet, C_\bullet^{\otimes 2}  \right)
+	\end{equation*}
 	has a right $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest
 	\begin{equation*}
 	\Delta_0 - T \Delta_0.
 	\end{equation*}
+\end{frame}
+
+
+
+\begin{frame}{Steenrod's obstructions to commutativity}
+	The cup-$1$ coproduct
 	
-	\pause
+	\begin{equation*}
+	\Delta_1 [0, \dots, n] = \sum_{i<j} \pm [0, \dots, i, j, \dots, n] \otimes [i, \dots, j]
+	\end{equation*}
+	is boundary killing this cycle. But is itself \textbf{not symmetric}.
 	
+	\vspace*{10pt} \pause
 	
+	Steenrod gave formulae for higher corrections, the cup-$i$ coproducts:
 	
+	\begin{equation*}
+	\partial (\Delta_{i+1}) = \Delta_i - (-1)^i T \Delta_i.
+	\end{equation*}
 	
-\end{frame}
-
- %%
- %%  SECTION 2 - ITEMIZATION
- %%
-\section{Itemization and enumeration examples}
- \label{sec:items}
-\begin{frame}{Itemize}
-(default)
-\begin{itemize}
-	\item Itemize style
-	\item Itemize style
-	\begin{itemize}
-		\item Itemize subitem 
-		\item Itemize subitem
-			\begin{itemize}
-				\item Itemize subsubitem
-				\item Itemize subsubitem
-			\end{itemize}
-		\item Itemize subitem	
-	\end{itemize}
-	\item Itemize style
-\end{itemize}
-\end{frame}
-
-
-
-
-\begin{frame}{Itemize}
-(extra space between items)
-\begin{itemize}
-	\itemsep 20pt
-	\item Itemize style
-	\item Itemize style
-	\begin{itemize}
-		\itemsep 10pt
-		\item Itemize subitem
-		\item Itemize subitem
-		\item Itemize subitem	
-	\end{itemize}
-	\item Itemize style
-\end{itemize}
-\end{frame}
-
-
-
-
-\begin{frame}{Enumerate}
-(default)
-\begin{enumerate}
-	\item Enumerate style
-	\item Enumerate style
-	\begin{enumerate}
-		\item Enumerate subitem
-		\item Enumerate subitem
-		\begin{enumerate}
-			\item Enumerate subsubitem
-			\item Enumerate subsubitem
-		\end{enumerate}
-		\item Enumerate subitem
-	\end{enumerate}
-	\item Enumerate style
-\end{enumerate}
-\end{frame}
-
-
-
-
-\begin{frame}{Enumerate}
-(option I) + pause
-\begin{enumerate}[I]
-	\item Enumerate style
-	\item Enumerate style
-	\begin{enumerate}[I]
-		\item Enumerate subitem
-		\item Enumerate subitem
-		\pause
-		\begin{enumerate}[I]
-			\item Enumerate subsubitem
-			\item Enumerate subsubitem
-		\end{enumerate}
-		\pause
-		\item Enumerate subitem
-	\end{enumerate}
-	\item Enumerate style
-\end{enumerate}
-\end{frame}
-
-
-
-
-\begin{frame}{Enumerate}
-(option i.)
-\begin{enumerate}[i.]
-	\item Enumerate style
-	\item Enumerate style
-	\begin{enumerate}[i.]
-		\item Enumerate subitem
-		\item Enumerate subitem
-		\begin{enumerate}[i.]
-			\item Enumerate subsubitem
-			\item Enumerate subsubitem
-		\end{enumerate}
-		\item Enumerate subitem
-	\end{enumerate}
-	\item Enumerate style
-\end{enumerate}
-\end{frame}
-
-
-
-
-\begin{frame}{Enumerate}
-(option A.) + effects
-\begin{enumerate}[A.]
-	\item<1-5> Enumerate style
-	\item<1-5> Enumerate style
-	\begin{enumerate}[A.]
-		\item<2-5> Enumerate subitem
-		\item<3-5> Enumerate subitem
-		\begin{enumerate}[A.]
-			\item<3-4> Enumerate subsubitem
-			\item<3-4> Enumerate subsubitem
-		\end{enumerate}
-		\item<4-5> Enumerate subitem
-	\end{enumerate}
-	\item<5> Enumerate style
-\end{enumerate}
-\end{frame}
-
-
-
-
-\begin{frame}{Enumerate}
-(option a + extra space)
-\begin{enumerate}[a\enspace]
-	\item Enumerate style
-	\item Enumerate style
-	\begin{enumerate}[a\enspace]
-		\item Enumerate subitem
-		\item Enumerate subitem
-		\begin{enumerate}[a\enspace]
-			\item Enumerate subsubitem
-			\item Enumerate subsubitem
-		\end{enumerate}
-		\item Enumerate subitem
-	\end{enumerate}
-	\item Enumerate style
-\end{enumerate}
-\end{frame}
-
-
-
-
-
-
-
- %%
- %%  SECTION 3 - OPTIONS
- %%
-\section{Quick options \& customisation}
-
-\begin{frame}[fragile]{(A) Math font}
-In preamble of demo.tex there are a few options to easily modify or customise your presentation 
-
-\medskip
-Default sans-serif math:
-    \begin{itemize}
-        \item $ c^2 = a^2+b^2 - 2ab \cos\gamma $
-        \item $e^{ \pm i\theta } = \cos \theta \pm i\sin \theta$
-    \end{itemize}
-
-\medskip
-To change to serif math everywhere
-
-    \begin{itemize}
-        \item $ \mathnormal{c^\mathrm{2} = a^\mathrm{2}+b^\mathrm{2} - \mathrm{2}ab \cos\gamma} $
-        \item $\mathnormal{e^{ \pm i\theta } = \cos \theta \pm i\sin \theta}$
-    \end{itemize}
-\medskip
-\verb+  \usefonttheme[onlymath]{serif}+
-
-\end{frame}
-
-
-
-
-\begin{frame}[fragile]{(B) Change primary colour}
-    \begin{itemize}
-        \item Default color for frame titles, itemization and other elements is \textcolor{pblue}{blue}
-        \item You can redefine primary color, to e.g. orange, by changing RGB values:
-    \end{itemize}
-
-\medskip
-\verb+\definecolor{pblue}{RGB}{+{\color{red}\verb+206,125,66+}\verb+}+
-\end{frame}
-
-
-\begin{frame}[fragile]{(C) First page foreground image}
-    \begin{itemize}
-        \item Add additional small foreground image on the title page
-        \item Add in preamble:
-    \end{itemize}
-
-\vspace{12pt}
-\begin{verbatim}
-\titlegraphic{\includegraphics[height=3cm]{myimage.png}}
-\end{verbatim}
-
-\medskip
-\centering Not that this not for the background image. Go to: \hyperlink{background_image}{\beamergotobutton{First page background}}
-
-\end{frame}
-
-
-
-\begin{frame}[fragile]{(D) Footline logo}
-\begin{itemize}
-    \item Add your logo in bottom right corner
-    \item Command \verb+\logo+ can be removed, and no logo will be shown
-\end{itemize}
-
-\vspace{12pt}
-\begin{verbatim}
-\logo{\includegraphics[height=0.7cm]{logo.png}\hspace{12pt}
-    \vspace{-6pt}}
-\end{verbatim}
-
-
-
-
-\end{frame}
-
-
-
-
-\begin{frame}[fragile]{(E) Footline information bar}
-\begin{itemize}
-    \item Add information on bottom of every frame
-    \item Four options:
-    \begin{itemize}
-        \item \verb+infoline+ ~:~ Text line with author, titile and institute
-        \item \verb+navigation+  ~:~ Dots by frame and section showing progress
-        \item \verb+navsym+  ~:~ Navigation symbols
-        \item Nothing (delete/disable all)
-    \end{itemize}
-    \smallskip
-    \item Options cannot be combined
-    \item Can be combined with logo
-    
-\end{itemize}
-
-\medskip
-\verb+\setbeamertemplate{footline}[+{\color{red}\verb+infoline+}\verb+]+
-\end{frame}
-
-
-
-
-
-
-\begin{frame}[fragile]{(F) Widescreen}
-	Default screen ration is 4:3.  Load the following package in the preamble to make all frames wider to 16:9 ratio:
+	\vspace*{0pt}\pause
 	
-	\begin{verbatim}
-	\usepackage[orientation=landscape,size=custom,
-	width=16,height=9,scale=0.45,debug]{beamerposter} 
-	\end{verbatim}
-	
-	Title page or other frames should not get (too) distorted because of it. 
+	More abstractly, if
+	\begin{equation*}
+	W(2) \quad = \quad \mathbb Z[\Sigma_2] \stackrel{\ 1-T}{\longleftarrow} \mathbb Z[\Sigma_2] \stackrel{\ 1+T}{\longleftarrow} \mathbb Z[\Sigma_2] \stackrel{\ 1-T}{\longleftarrow} \cdots
+	\end{equation*}
+	is the minimal free resolution of $\mathbb Z$ as a $\mathbb Z[\Sigma_2]$-module, he effectively constructed an equivariant chain map
+	\begin{equation*}
+	W(2) \otimes C_\bullet \to C_\bullet^{\otimes 2}.
+	\end{equation*}
 \end{frame}
 
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- %%
- %%  SECTION 4 - GALLERY
- %%
-\section{Title page background templates gallery}
-\begin{frame}[fragile]{First page background}\label{background_image}
-    \begin{itemize}
-        \item Easily change first page background image with a selection of templates, or any photo you want (change filename \textcolor{red}{in red})
-        \item All included images are based on photos that free for commercial and non-commercial use. Attribution is not required.
-        \item Background image can be removed (delete the entire line)
-    \end{itemize}
-    
-  \vspace{6pt}  
-\verb+{+ \\
-
-\verb+\usebackgroundtemplate{+{\color{gray} \verb+\parbox[b][\paperheight]+
-
-    \verb+[b]{\paperwidth}{\centering+
-\color{black}\verb+\includegraphics+
-\color{gray} \verb+[width=\paperwidth]+\color{black}\verb+{Background/+\color{red} \verb+bg_alishan.jpg+\color{black}\verb+}+\color{gray} \verb+}+\color{black}\verb+}+ 
-}
-
-\smallskip
-\verb+\begin{frame}[plain,noframenumbering]+ \\
-\verb+  \titlepage+ \\
-\verb+\end{frame}+ \\
-\verb+}+
-
-\vspace{12pt}  
-\footnotesize{Part in \textcolor{gray}{gray} is is not always necessary. It ensures the images of various sizes will fit and are aligned.}
+\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+	Passing to orbits and $\F_2$-dualizing, we have a chain map between fix points
+	\begin{equation*}
+	\begin{tikzcd}
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2}
+	\end{tikzcd}
+	\end{equation*}
+\end{frame}
+%%%%%%%%%%%%%
+\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+	Passing to orbits and $\F_2$-dualizing, we have a chain map between fix points
+	\begin{equation*}
+	\begin{tikzcd}
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[d] \\
+	\left(C^\bullet \otimes C^\bullet\right)^{\Sigma_2} \arrow[u] &
+	Hom\left(W(2)_{\Sigma_2} \otimes C_\bullet, \F_2 \right)
+	\end{tikzcd}
+	\end{equation*}
+\end{frame}
+%%%%%%%%%%%%%
+\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+	Passing to orbits and $\F_2$-dualizing, we have a chain map between fix points
+	\begin{equation*}
+	\begin{tikzcd}
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[d] \\
+	\left(C^\bullet \otimes C^\bullet\right)^{\Sigma_2} \arrow[u]&
+	Hom\left(W(2)_{\Sigma_2} \otimes C_\bullet, \F_2 \right) \arrow[d] \\
+	C^\bullet = Hom\left(C_\bullet, \F_2 \right) \arrow[u, "Double"] \arrow[r, dashed]&
+	Hom\left(W(2)_{\Sigma_2}, C^\bullet\right) \\
+	\end{tikzcd}
+	\end{equation*}
+	
+	\vspace*{-22pt}\pause
+	
+	By adjuntion, we obtain a chain map
+	\vspace*{-5pt}
+	\begin{equation*}
+	\begin{tikzcd}[row sep=tiny, column sep = tiny]
+	C^\bullet \otimes W(2)_{\Sigma_2} \arrow[r] & C^\bullet \\
+	\alpha \otimes e_i \arrow[r, |->] & (\alpha \otimes \alpha)\Delta_i(-)
+	\end{tikzcd}
+	\end{equation*}
+	
+	\vspace*{-5pt}\pause
+	
+	\textcolor{pblue}{Take away:} The mod-2 homology of $\Sigma_2$ defines operations on the mod-2 cohomology of spaces.
 \end{frame}
 
 \section*{References}
 
 \begin{frame}%[allowframebreaks]
 	\frametitle{References}
-	
+	\nocite{whitney1935history}
 	\bibliographystyle{amsalpha}
 	\bibliography{biblio.bib}
 \end{frame}
