@@ -143,14 +143,14 @@
 	\begin{equation*} \label{eq: complex of maps to the tensor product}
 	Hom\left(C_\bullet, C_\bullet^{\otimes 2}  \right)
 	\end{equation*}
-	has a left $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest:
+	has a left $\mathrm{S}_2$-action induced from $T$, and there is a $0$-cycle of interest:
 	\begin{equation*}
 	\Delta_0 - T \Delta_0.
 	\end{equation*}
 \end{frame}
 
 
-\begin{frame}{Steenrod's obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod's obstructions to commutativity}
 	The cup-$1$ coproduct
 	\begin{equation*}
 	\Delta_1 [0, \dots, n] = \sum_{i<j} \pm [0, \dots, i, j, \dots, n] \otimes [i, \dots, j]
@@ -166,11 +166,14 @@
 	
 	\vspace*{0pt}\pause
 	
-	More abstractly, if
+	More abstractly, if $W(2)$ is the minimal resolution of $\mathbb Z$ by free $\mathbb Z[\mathrm{S}_2]$-modules
 	\begin{equation*}
-	W(2) \quad = \quad \mathbb Z[\Sigma_2] \stackrel{\ 1-T}{\longleftarrow} \mathbb Z[\Sigma_2] \stackrel{\ 1+T}{\longleftarrow} \mathbb Z[\Sigma_2] \stackrel{\ 1-T}{\longleftarrow} \cdots
+	\begin{tikzcd}[column sep=normal]
+	\mathbb{Z}[\mathrm C_r]\{e_0\} & \arrow[l, "1-T"'] \mathbb{Z}[\mathrm C_r]\{e_1\} &[-5pt] \arrow[l, "T+1"']
+	\mathbb{Z}[\mathrm C_r]\{e_2\} & \arrow[l, "1-T"'] \cdots
+	\end{tikzcd}
 	\end{equation*}
-	is the minimal free resolution of $\mathbb Z$ as a $\mathbb Z[\Sigma_2]$-module, \pause he effectively constructed an equivariant chain map
+	\pause he effectively constructed an equivariant chain map
 	\begin{equation*}
 	W(2) \otimes C_\bullet \to C_\bullet^{\otimes 2}.
 	\end{equation*}
@@ -181,8 +184,8 @@
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
-	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
-	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2}
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2}
 	\end{tikzcd}
 	\end{equation*}
 \end{frame}
@@ -191,10 +194,10 @@
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
-	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
-	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[d] \\
-	\left(C^\bullet \otimes C^\bullet\right)^{\Sigma_2} \arrow[u] &
-	Hom\left(W(2)_{\Sigma_2} \otimes C_\bullet, \F_2 \right)
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[d] \\
+	\left(C^\bullet \otimes C^\bullet\right)^{\mathrm{S}_2} \arrow[u] &
+	Hom\left(W(2)_{\mathrm{S}_2} \otimes C_\bullet, \F_2 \right)
 	\end{tikzcd}
 	\end{equation*}
 \end{frame}
@@ -203,12 +206,12 @@
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
-	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
-	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[d] \\
-	\left(C^\bullet \otimes C^\bullet\right)^{\Sigma_2} \arrow[u]&
-	Hom\left(W(2)_{\Sigma_2} \otimes C_\bullet, \F_2 \right) \arrow[d] \\
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[d] \\
+	\left(C^\bullet \otimes C^\bullet\right)^{\mathrm{S}_2} \arrow[u]&
+	Hom\left(W(2)_{\mathrm{S}_2} \otimes C_\bullet, \F_2 \right) \arrow[d] \\
 	C^\bullet \arrow[u, "Double"] \arrow[r, dashed]&
-	Hom\left(W(2)_{\Sigma_2}, C^\bullet\right) \\
+	Hom\left(W(2)_{\mathrm{S}_2}, C^\bullet\right) \\
 	\end{tikzcd}
 	\end{equation*}
 	
@@ -218,14 +221,14 @@
 	\vspace*{-2pt}
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep = tiny]
-	C^\bullet \otimes W(2)_{\Sigma_2} \arrow[r] &[-10pt] C^\bullet \\
+	C^\bullet \otimes W(2)_{\mathrm{S}_2} \arrow[r] &[-10pt] C^\bullet \\
 	\alpha \otimes e_i \arrow[r, |->] & (\alpha \otimes \alpha)\Delta_i(-)
 	\end{tikzcd}
 	\end{equation*}
 	
 	\vspace*{-5pt}\pause
 	
-	\textcolor{pblue}{Take away:} The mod-2 homology of $\Sigma_2$ defines operations on the mod-2 cohomology of spaces.
+	\textcolor{pblue}{Take away:} The mod-2 homology of $\mathrm{S}_2$ defines operations on the mod-2 cohomology of spaces.
 \end{frame}
 
 
@@ -265,24 +268,24 @@
 \end{frame}
 
 
-\begin{frame}{Higher diagonals and the homology of $\Sigma_p$}
+\begin{frame}{Higher diagonals and the homology of $\mathrm{S}_p$}
 	What do we need to generalize the construction of Steenrod squares?
 	
 	\pause \vspace{10pt}
 	
 	\begin{enumerate}
-		\item Construct $\Sigma_p$-equivariant maps
+		\item Construct $\mathrm{S}_p$-equivariant maps
 		\begin{equation*}
-		E\Sigma_p \otimes C_\bullet \to C_\bullet^{\otimes p}
+		E\mathrm{S}_p \otimes C_\bullet \to C_\bullet^{\otimes p}
 		\end{equation*}
-		for $E\Sigma_p$ a resolution of $\mathbb Z$ by free $\mathbb Z[\Sigma_p]$-modules.
+		for $E\mathrm{S}_p$ a resolution of $\mathbb Z$ by free $\mathbb Z[\mathrm{S}_p]$-modules.
 		\vspace*{10pt} \pause
-		\item Identify chains in $E\Sigma_p$ whose orbits in $(E\Sigma_p)_{\Sigma_p} = B\Sigma_p$ represent mod-$p$ homology classes.
+		\item Identify chains in $E\mathrm{S}_p$ whose orbits in $(E\mathrm{S}_p)_{\mathrm{S}_p} = B\mathrm{S}_p$ represent mod-$p$ homology classes.
 	\end{enumerate}
 
 	\vspace*{10pt}\pause
 
-	The first step is systematized by the use of operads, which we describe next, and the second is simplified by the group theoretical fact that the mop-$p$ homology of $\Sigma_p$ is detected by any cyclic subgroup of order $p$.
+	The first step is systematized by the use of operads, which we describe next, and the second is simplified by the group theoretical fact that the mop-$p$ homology of $\mathrm{S}_p$ is detected by any cyclic subgroup of order $p$.
 \end{frame}
 
 
@@ -298,7 +301,7 @@
 	
 	Is equipped the structure of an operad:
 	\begin{itemize}
-		\item A left action of $\Sigma_r$ on $End^C(r)$,
+		\item A left action of $\mathrm{S}_r$ on $End^C(r)$,
 		\item Composition chain maps
 		\begin{equation*}
 		\begin{tikzcd}[column sep=small, row sep=tiny]
@@ -340,13 +343,45 @@
 	\end{equation*}
 	
 	\pause
-	We want free resolutions at every prime arity.
-	
+	Recall that we want free resolutions at every prime arity.
+
+	\pause
+
 	\begin{definition}
-		An $E_\infty$-operad $\mathcal R$ is one with each $\mathcal R(r)$ a resolution of $\mathbb Z$ by free $\mathbb Z[\Sigma_r]$-modules
+		An $E_\infty$-operad $\mathcal R$ is one with each $\mathcal R(r)$ a resolution of $\mathbb Z$ by free $\mathbb Z[\mathrm{S}_r]$-modules
 	\end{definition}
-	
 \end{frame}
+
+
+\begin{frame}[fragile]{Steenrod-Adem structures}
+	Now we use the fact that the mod-$p$ homology of $\mathrm{S}_p$ is detected by the inclusion $\langle \rho\ |\ \rho^p\rangle = \mathrm{C}_p \to \mathrm{S}_p$.
+	
+	\pause \vspace*{10pt}
+	
+	Let $\mathcal W(r)$ be the minimal resolution of $\mathbb{Z}$ by $\mathbb{Z}[\mathrm C_r]$ modules:
+	\begin{equation*}
+	\begin{tikzcd}[column sep=normal]
+	\mathbb{Z}[\mathrm C_r]\{e_0\} & \arrow[l, "\rho-1"'] \mathbb{Z}[\mathrm C_r]\{e_1\} &[-5pt] \arrow[l, "N"']
+	\mathbb{Z}[\mathrm C_r]\{e_2\} & \arrow[l, "\rho-1"'] \cdots
+	\end{tikzcd}
+	\end{equation*}
+	with $N = 1+\rho+\cdots+\rho^{r-1}$, and $\mathcal{W} = \left\{\mathcal{W}(r)\right\}_{r \geq 1}$.
+	
+	\pause \vspace*{10pt}
+	
+	A \textcolor{pblue}{Steenrod-Adem structure} on an $E_\infty$-operad $\mathcal R$ is an arity-wise equivariant quasi-isomorphism $\mathcal W \to \mathcal R$ \pause, and
+	
+	\vspace*{10pt}
+	
+	the \textcolor{pblue}{Steenrod $(r, i)$-coproduct} on an $\mathcal R$-coalgebra is the image
+	of $e_i$ in $Hom(C, C^{\otimes r})$ via the composition	
+	\begin{equation*}
+	\begin{tikzcd}[column sep=small]
+	\mathcal W \arrow[r] & \mathcal R \arrow[r] & End^C.
+	\end{tikzcd}
+	\end{equation*}		
+\end{frame}
+
 
 \section{Examples}
 
