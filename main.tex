@@ -143,7 +143,7 @@
 	\begin{equation*} \label{eq: complex of maps to the tensor product}
 	Hom\left(C_\bullet, C_\bullet^{\otimes 2}  \right)
 	\end{equation*}
-	has a right $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest:
+	has a left $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest:
 	\begin{equation*}
 	\Delta_0 - T \Delta_0.
 	\end{equation*}
@@ -234,7 +234,7 @@
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep=tiny]
 	Sq^k \colon H^{-n} \arrow[r] & H^{-n-k} \\
-	\phantom{Sq^k \colon}{[\alpha]} \arrow[r, |->] & {\left[(\alpha \otimes \alpha)\Delta_{k-n}(-) \right]}
+	\phantom{Sq^k \colon}{[\alpha]} \arrow[r, |->] & {\left[(\alpha \otimes \alpha)\Delta_{n-k}(-) \right]}
 	\end{tikzcd}
 	\end{equation*}
 	Their importance in stable homotopy theory is hard to overstate.
@@ -254,12 +254,12 @@
 	The explicit formulae for the cup-$i$ (co)products	
 	\begin{itemize}
 		\item Are used in the definition of action functionals in lattice models in quantum field theory (Kapustin, Thorngren), \pause
-		\item Are used in persistence (co)homology to extract finner information of data sets (M-M--Tauzin), \pause
-		\item Define the nerve of higher categories (M-M), \pause
-		\item Can be axiomatically characterized in analogy to the axioms for Steenrod square (M-M), \pause
-		\item Are used to construct effective chain approximation to spin bordism (Brumfiel-Morgan), \pause
+		\item Are used in persistence (co)homology to extract finner information of data sets (MM--Tauzin), \pause
+		\item Define the nerve of higher categories (MM), \pause
+		\item Can be axiomatically characterized in analogy to the axioms for Steenrod square (MM), \pause
+		\item Are used to construct effective chain approximation to spin bordism (Brumfiel--Morgan), \pause
 		\item Are used to construct mod-2 operations on Khovanov homology (Cantero-Moran), \pause
-		\item Can be used to construct cochains enforcing the Cartan (M-M) and Adem (Brumfiel--M-M--Morgan) relations,
+		\item Can be used to construct cochains enforcing the Cartan (MM) and Adem (Brumfiel--MM--Morgan) relations,
 		\item \ $\cdots$
 	\end{itemize}
 \end{frame}
@@ -288,7 +288,33 @@
 
 \section{Operads and their algebras}
 
+\begin{frame}[fragile]{Canonical example}
+	Let $C$ be a chain complex, the set
+	\begin{equation*}
+	End^C = \left\{Hom(C, C^{\otimes r})\right\}_{r \geq 1}.
+	\end{equation*}
+	Is equipped the structure of an operad:
+	\begin{itemize}
+		\item A left action of $\Sigma_r$ on $End^C(r)$,
+		\item Composition chain maps
+		\begin{equation*}
+		\begin{tikzcd}[column sep=small, row sep=tiny]
+		\circ_i \colon &[-10pt] End^C(r) \otimes End^C(s) \arrow[r] & End^C(r+s-1) \\
+		& f \otimes g \arrow[r, |->] & (1, \dots, g, \dots, 1) \circ f 
+		\end{tikzcd}
+		\end{equation*}
+	\end{itemize}
+	satisfying equivariance, associativity, and unitality.
+	
+	\pause \vspace*{10pt}
+	
+	\textcolor{pblue}{Slogan:} Abstract groups are to automorphisms of complexes like operads are to these coendomorphism examples.
+\end{frame}
 
+
+\begin{frame}{Coalgebras}
+	content...
+\end{frame}
 
 \section{Examples}
 
