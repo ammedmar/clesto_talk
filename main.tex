@@ -17,7 +17,7 @@
     %\titlegraphic{\includegraphics[height=2.7cm]{example_figure.pdf}}
 
 % (D) Add logo to bottom right-corner (optional)
-    \logo{\includegraphics[height=0.7cm]{logo.png}\hspace{12pt}\vspace{-6pt}}      
+    \logo{\includegraphics[height=0.7cm]{icosahedron-src.pdf}\hspace{12pt}\vspace{-6pt}} 
 
 % (E) Choose one (or none) of these lines to add footline bar on all frames
     %\setbeamertemplate{footline}[infoline]  % author, title, insitute
@@ -73,12 +73,15 @@
 	x \arrow[r, |->]& (x, x)
 	\end{tikzcd}
 	\end{equation*}
-	induces a product in cohomology 
+	induces a product in cohomology with field coefficients
 	\begin{equation*}
 	\begin{tikzcd}[row sep = tiny]
-	H^\bullet \otimes H^\bullet \arrow[r, "\smallsmile"] & H^\bullet \\
+	\smallsmile \colon &[-20pt] H^\bullet(X) \otimes H^\bullet(X) \arrow[r, "\cong"] &[-5pt] H^\bullet(X \times X) \arrow[r, "H^\bullet(D)"] &[5pt] H^\bullet(X), \\
 	\end{tikzcd}
 	\end{equation*}
+	
+	\pause
+	
 	which is (graded) commutative, since the diagonal is invariant under the transposition
 	\begin{equation*}
 	\begin{tikzcd}[row sep = tiny]
@@ -86,11 +89,15 @@
 	(x, y) \arrow[r, |->]& (y, x).
 	\end{tikzcd}
 	\end{equation*}
+	
+	\vspace*{5pt} \pause
+	
+	\textcolor{pblue}{How about integer coefficients?}
 \end{frame}
 
 
 \begin{frame}[fragile]{Diagonal and cup product}
-	During the mid 1930's Alexander, Kolmogorov, \v{C}ech and Whitney lifted this product to the cochain level by dualizing a simplicial chain approximation to the diagonal map
+	During the mid 1930's Alexander, Kolmogorov, \v{C}ech and Whitney defined the cup product dualizing a simplicial chain approximation to the diagonal
 	\begin{equation*}
 	\begin{tikzcd}[%
 	,row sep = 0ex
@@ -102,37 +109,41 @@
 	\end{tikzcd}
 	\end{equation*}
 
-	\pause
-		
+	\pause \vspace*{10pt}
+
 	It is not invariant under the transposition
 	\begin{equation*}
 	\begin{tikzcd}[row sep = tiny]
 	C_\bullet \otimes C_\bullet \arrow[r, "T"] & C_\bullet \otimes C_\bullet \\
-	a \otimes b \arrow[r, |->]& (-1)^{|a||b|} b \otimes a,
+	a \otimes b \arrow[r, |->]& (-1)^{|a||b|} b \otimes a.
 	\end{tikzcd}
 	\end{equation*}
-	but, can it be made to be? \pause Over $\mathbb Q$, yes; over $\mathbb F_p$?
 	
-	\vspace*{10pt} \pause
+	\vspace*{10pt}\pause
 	
-	\textcolor{pblue}{Anachronism warning:} The map $\Delta$ was used to \textbf{define} the cup product. Functoriality wasn't yet fully developed.
+	\textcolor{pblue}{Can it be made to be?}
+	
+	
+
+
 \end{frame}
 
 
 \begin{frame}{Steenrod's obstructions to commutativity}
 	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_0 = $ from now on).
-	
+
 	\vspace*{15pt} \pause
-	
-	\textcolor{pblue}{Recall:} The set of linear maps between chain complexes is a chain complex. Furthermore, chain maps agree with $0$-cycles, and chain homotopies with $1$-boundaries.
+
+	\textcolor{pblue}{Recall:} The set of linear maps between chain complexes is a chain complex.
+	Chain maps $\sim$ $0$-cycles, chain homotopies $\sim$ $1$-boundaries.
 
 	\vspace*{15pt}\pause
-	
+
 	\textcolor{pblue}{Notice:} The chain complex
 	\begin{equation*} \label{eq: complex of maps to the tensor product}
 	Hom\left(C_\bullet, C_\bullet^{\otimes 2}  \right)
 	\end{equation*}
-	has a right $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest
+	has a right $\Sigma_2$-action induced from $T$, and there is a $0$-cycle of interest:
 	\begin{equation*}
 	\Delta_0 - T \Delta_0.
 	\end{equation*}
@@ -167,7 +178,7 @@
 	
 
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
-	Passing to orbits and $\F_2$-dualizing, we have a chain map between fix points
+	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
 	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
@@ -177,7 +188,7 @@
 \end{frame}
 %%%%%%%%%%%%%
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
-	Passing to orbits and $\F_2$-dualizing, we have a chain map between fix points
+	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
 	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
@@ -189,22 +200,22 @@
 \end{frame}
 %%%%%%%%%%%%%
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
-	Passing to orbits and $\F_2$-dualizing, we have a chain map between fix points
+	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
 	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[r] &
 	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\Sigma_2} \arrow[d] \\
 	\left(C^\bullet \otimes C^\bullet\right)^{\Sigma_2} \arrow[u]&
 	Hom\left(W(2)_{\Sigma_2} \otimes C_\bullet, \F_2 \right) \arrow[d] \\
-	C^\bullet = Hom\left(C_\bullet, \F_2 \right) \arrow[u, "Double"] \arrow[r, dashed]&
+	C^\bullet \arrow[u, "Double"] \arrow[r, dashed]&
 	Hom\left(W(2)_{\Sigma_2}, C^\bullet\right) \\
 	\end{tikzcd}
 	\end{equation*}
 	
-	\vspace*{-22pt}\pause
+	\vspace*{-20pt}\pause
 	
 	By adjuntion, we obtain a chain map
-	\vspace*{-5pt}
+	\vspace*{-2pt}
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep = tiny]
 	C^\bullet \otimes W(2)_{\Sigma_2} \arrow[r] &[-10pt] C^\bullet \\
@@ -223,31 +234,31 @@
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep=tiny]
 	Sq^k \colon H^{-n} \arrow[r] & H^{-n-k} \\
-	\phantom{Sq^k \colon}{[\alpha]} \arrow[r, |->] & {\left[(\alpha \otimes \alpha)\Delta_{k-i}(-) \right]}
+	\phantom{Sq^k \colon}{[\alpha]} \arrow[r, |->] & {\left[(\alpha \otimes \alpha)\Delta_{k-n}(-) \right]}
 	\end{tikzcd}
 	\end{equation*}
 	Their importance in stable homotopy theory is hard to overstate.
 	
-	\begin{block}{As obstructions to commutativity}
-		By the construction, their non-triviality is an obstruction to a \textbf{commutative} product of cochains.
-	\end{block}
-
-	\begin{block}{Cup-$i$ products}
-		Over the integers, the duals of the $\Delta_i$ maps, the cup-$i$ products, are a coherent family of homotopies correcting the broken commutativity of $\smallsmile_0$, a lift of the cup product.
-	\end{block}
+	\pause \vspace{\baselineskip}
+	
+	By construction, their non-triviality is an obstruction to a \textbf{commutative} product of cocycles.
+	
+	\pause \vspace{\baselineskip}
+	
+	The relevance of the cup-$i$ coproducts $\Delta_i$ goes beyond their use defining the $Sq^k$ operations.
+		
 \end{frame}
 
 
 \begin{frame}{The relevance of chain level Steenrod squares}
-	
-	The explicit formulae for the cup-$i$ products	
+	The explicit formulae for the cup-$i$ (co)products	
 	\begin{itemize}
-		\item Are used in the definition of action functionals in lattice models in quantum field theory (Kapustin, Thorngren).
-		\item Are used in persistence (co)homology to extract finner information of data sets (M-M--Tauzin),
-		\item Define the nerve of higher categories (M-M),
-		\item Can be axiomatically characterized in analogy to the axioms for Steenrod square (M-M).
-		\item Are used to construct effective chain approximation to spin bordism (Brumfiel-Morgan)
-		\item Are used to construct mod-2 operations on Khovanov homology (Cantero-Moran),
+		\item Are used in the definition of action functionals in lattice models in quantum field theory (Kapustin, Thorngren), \pause
+		\item Are used in persistence (co)homology to extract finner information of data sets (M-M--Tauzin), \pause
+		\item Define the nerve of higher categories (M-M), \pause
+		\item Can be axiomatically characterized in analogy to the axioms for Steenrod square (M-M), \pause
+		\item Are used to construct effective chain approximation to spin bordism (Brumfiel-Morgan), \pause
+		\item Are used to construct mod-2 operations on Khovanov homology (Cantero-Moran), \pause
 		\item Can be used to construct cochains enforcing the Cartan (M-M) and Adem (Brumfiel--M-M--Morgan) relations,
 		\item \ $\cdots$
 	\end{itemize}
@@ -255,22 +266,29 @@
 
 
 \begin{frame}{Higher diagonals and the homology of $\Sigma_p$}
-	To imitate the construction of Steenrod squares at the chain level, need to:
+	What do we need to generalize the construction of Steenrod squares?
+	
+	\pause \vspace{10pt}
+	
 	\begin{enumerate}
 		\item Construct $\Sigma_p$-equivariant maps
 		\begin{equation*}
 		E\Sigma_p \otimes C_\bullet \to C_\bullet^{\otimes p}
 		\end{equation*}
 		for $E\Sigma_p$ a resolution of $\mathbb Z$ by free $\mathbb Z[\Sigma_p]$-modules.
-		\vspace*{10pt}
-		\item Identify chains in $(E\Sigma_p)_{\Sigma_p}$ whose orbits in $(E\Sigma_p)_{\Sigma_p} = B\Sigma_p$ represent mod-$p$ homology classes.
+		\vspace*{10pt} \pause
+		\item Identify chains in $E\Sigma_p$ whose orbits in $(E\Sigma_p)_{\Sigma_p} = B\Sigma_p$ represent mod-$p$ homology classes.
 	\end{enumerate}
-	\vspace*{10pt}
-	The first step is systematized by the use of operads, which we describe next, and the second is simplified by the group theoretical fact that the mop-$p$ homology of $\Sigma_p$ is detected by the that of a cyclic subgroup of order $p$.
+
+	\vspace*{10pt}\pause
+
+	The first step is systematized by the use of operads, which we describe next, and the second is simplified by the group theoretical fact that the mop-$p$ homology of $\Sigma_p$ is detected by any cyclic subgroup of order $p$.
 \end{frame}
 
 
 \section{Operads and their algebras}
+
+
 
 \section{Examples}
 
