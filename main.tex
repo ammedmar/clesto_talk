@@ -289,10 +289,13 @@
 \section{Operads and their algebras}
 
 \begin{frame}[fragile]{Canonical example}
-	Let $C$ be a chain complex, the set
+	Let $C$ be a chain complex, Consider the set
 	\begin{equation*}
 	End^C = \left\{Hom(C, C^{\otimes r})\right\}_{r \geq 1}.
 	\end{equation*}
+	
+	\pause
+	
 	Is equipped the structure of an operad:
 	\begin{itemize}
 		\item A left action of $\Sigma_r$ on $End^C(r)$,
@@ -300,11 +303,11 @@
 		\begin{equation*}
 		\begin{tikzcd}[column sep=small, row sep=tiny]
 		\circ_i \colon &[-10pt] End^C(r) \otimes End^C(s) \arrow[r] & End^C(r+s-1) \\
-		& f \otimes g \arrow[r, |->] & (1, \dots, g, \dots, 1) \circ f 
+		& f \otimes g \arrow[r, |->] & (1 \otimes \cdots \otimes g \otimes \cdots \otimes 1) \circ f 
 		\end{tikzcd}
 		\end{equation*}
 	\end{itemize}
-	satisfying equivariance, associativity, and unitality.
+	satisfying forms of equivariance, associativity, and unitality.
 	
 	\pause \vspace*{10pt}
 	
@@ -312,8 +315,37 @@
 \end{frame}
 
 
-\begin{frame}{Coalgebras}
-	content...
+\begin{frame}[fragile]{Coalgebras}
+	Let $\mathcal O$ be an operad, a coalgebra on $C$ is a structure preserving morphism
+	\begin{equation*}
+	\mathcal O \to End^C.
+	\end{equation*}
+	This compatibly parameterizes maps $C \to C^{\otimes r}$ by elements in $\mathcal O(r)$.
+	
+	\pause \vspace*{10pt}
+	
+	Compare with Steenrod's
+	\vspace*{-2pt}
+	\begin{equation*}
+	\begin{tikzcd}[%
+	row sep=tiny,
+	column sep = small,
+	,row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}
+	]
+	W(2) \arrow[r] & Hom\left(C_\bullet, C_\bullet^{\otimes 2}\right) \\
+	e_i \arrow[r, |->] & \Delta_i
+	\end{tikzcd}
+	\end{equation*}
+	
+	\pause
+	We want free resolutions at every prime arity.
+	
+	\begin{definition}
+		An $E_\infty$-operad $\mathcal R$ is one with each $\mathcal R(r)$ a resolution of $\mathbb Z$ by free $\mathbb Z[\Sigma_r]$-modules
+	\end{definition}
+	
 \end{frame}
 
 \section{Examples}
