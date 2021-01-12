@@ -436,7 +436,8 @@
 	\end{tikzpicture}
 	\vspace*{-10pt}
 	\end{equation*}
-	with $n$-copies of the product. \pause These copies inherit a total order and the boundary map is obtained by removing their incoming strands in order.
+	with $n$-copies of the product. \pause These copies inherit a total order and the boundary map is obtained by removing their incoming strands in order. \vspace*{5pt}
+	
 	\textcolor{pblue}{Example:}
 	\begin{equation*}
 	\begin{tikzpicture}[scale=.35]
@@ -467,11 +468,69 @@
 	\end{equation*}
 \end{frame}
 
+
+\begin{frame}{The operad $\M$}
+	\begin{theorem}[MM]
+		The operad $\M$ is $E_\infty$.
+	\end{theorem}
+
+	\pause
+
+	Thew proof uses an explicit contraction, which we use to iteratively construct a Steenrod-Adem structure on it
+	\begin{equation*}
+	\phi \colon \mathcal W \to \M.
+	\end{equation*}
+	
+	\pause
+	
+	The chain homotopy of this contraction is determined by the map
+	\begin{equation*}
+	\begin{tikzpicture}[scale=.75]
+	\draw (-.5,.75)--(.5,.75)--(.5,.25)--(-.5,.25)--(-.5,.75);
+	\node[scale=.75] at (0,.5){$\Gamma$};
+	\draw (0,.75)--(0,1.35);
+	\draw (-.5,.25)--(-.5,-.25);
+	\node[scale=.5] at (-.5,-.5){1};
+	\draw (.5,.25)--(.5,-.25);
+	\node[scale=.75] at (.5,-.5){$r$};
+	\node[scale=.75] at (0,-.5){$\cdots$};
+	
+	\draw[->] (1,.5) -- (1.5,.5);
+	\end{tikzpicture}
+	\quad %%%%%%%%%%%%5
+	\begin{tikzpicture}[scale=.75]
+	\draw (-.5,.75)--(.5,.75)--(.5,.25)--(-.5,.25)--(-.5,.75);
+	\node[scale=.75] at (0,.5){$\Gamma$};
+	\draw (0,.75)--(0,1.35);
+	\draw (-.5,.25)--(-.5,-.25);
+	\node[scale=.5] at (-.5,-.5){1};
+	\draw (.5,.25)--(.5,-.25);
+	\node[scale=.75] at (.5,-.5){$r$};
+	\node[scale=.75] at (0,-.5){$\cdots$};
+	
+	\draw (0,1.25) to [out=-125, in=90] (-.75, .5) to [out=-90, in=125] (-.5, -.1);
+	\end{tikzpicture}
+	\vspace*{-10pt}
+	\end{equation*}
+	
+	\pause \vspace*{10pt}
+	
+	\textcolor{pblue}{Comment (not used today)}
+	The operad $\M$ is cofibrant on the the category of operads and not only on that of $\S$-modules.
+\end{frame}
+
+
+\begin{frame}{Steenrod $(r,i)$-products on spaces}
+	content...
+\end{frame}
+
+
 \section{Examples}
+
 
 \section*{References}
 
-\begin{frame}%[allowframebreaks]
+\begin{frame}[allowframebreaks]
 	\frametitle{References}
 	\nocite{whitney1935history}
 	\bibliographystyle{amsalpha}
