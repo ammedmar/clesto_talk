@@ -1,9 +1,13 @@
 \documentclass[10pt,t]{beamer}
 \usetheme{Heverlee}
 
+\usepackage{tikz}
 \usepackage{tikz-cd}
 
-\newcommand{\F}{\mathbb F}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\S}{\mathrm{S}}
+\newcommand{\C}{\mathrm{C}}
+\newcommand{\M}{\overline{U(\mathcal M)}}
 
 
 %%% QUICK OPTIONS:
@@ -143,7 +147,7 @@
 	\begin{equation*} \label{eq: complex of maps to the tensor product}
 	Hom\left(C_\bullet, C_\bullet^{\otimes 2}  \right)
 	\end{equation*}
-	has a left $\mathrm{S}_2$-action induced from $T$, and there is a $0$-cycle of interest:
+	has a left $\S_2$-action induced from $T$, and there is a $0$-cycle of interest:
 	\begin{equation*}
 	\Delta_0 - T \Delta_0.
 	\end{equation*}
@@ -166,11 +170,11 @@
 	
 	\vspace*{0pt}\pause
 	
-	More abstractly, if $W(2)$ is the minimal resolution of $\mathbb Z$ by free $\mathbb Z[\mathrm{S}_2]$-modules
+	More abstractly, if $W(2)$ is the minimal resolution of $\mathbb Z$ by free $\mathbb Z[\S_2]$-modules
 	\begin{equation*}
 	\begin{tikzcd}[column sep=normal]
-	\mathbb{Z}[\mathrm C_r]\{e_0\} & \arrow[l, "1-T"'] \mathbb{Z}[\mathrm C_r]\{e_1\} &[-5pt] \arrow[l, "T+1"']
-	\mathbb{Z}[\mathrm C_r]\{e_2\} & \arrow[l, "1-T"'] \cdots
+	\mathbb{Z}[\C_r]\{e_0\} & \arrow[l, "1-T"'] \mathbb{Z}[\C_r]\{e_1\} &[-5pt] \arrow[l, "T+1"']
+	\mathbb{Z}[\C_r]\{e_2\} & \arrow[l, "1-T"'] \cdots
 	\end{tikzcd}
 	\end{equation*}
 	\pause he effectively constructed an equivariant chain map
@@ -181,11 +185,11 @@
 	
 
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
-	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
+	Using the $\F_2$-duality functor
 	\begin{equation*}
 	\begin{tikzcd}
-	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[r] &
-	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2}
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\phantom{\S_2}} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\phantom{\S_2}}
 	\end{tikzcd}
 	\end{equation*}
 \end{frame}
@@ -194,24 +198,36 @@
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
-	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[r] &
-	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[d] \\
-	\left(C^\bullet \otimes C^\bullet\right)^{\mathrm{S}_2} \arrow[u] &
-	Hom\left(W(2)_{\mathrm{S}_2} \otimes C_\bullet, \F_2 \right)
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\S_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\S_2}
 	\end{tikzcd}
 	\end{equation*}
+	\addtocounter{framenumber}{-1}
 \end{frame}
 %%%%%%%%%%%%%
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
-	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[r] &
-	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\mathrm{S}_2} \arrow[d] \\
-	\left(C^\bullet \otimes C^\bullet\right)^{\mathrm{S}_2} \arrow[u]&
-	Hom\left(W(2)_{\mathrm{S}_2} \otimes C_\bullet, \F_2 \right) \arrow[d] \\
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\S_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\S_2} \arrow[d] \\
+	\left(C^\bullet \otimes C^\bullet\right)^{\S_2} \arrow[u] &
+	Hom\left(W(2)_{\S_2} \otimes C_\bullet, \F_2 \right)
+	\end{tikzcd}
+	\end{equation*}
+	\addtocounter{framenumber}{-1}
+\end{frame}
+%%%%%%%%%%%%%
+\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
+	\begin{equation*}
+	\begin{tikzcd}
+	Hom\left(C_\bullet \otimes C_\bullet, \F_2 \right)^{\S_2} \arrow[r] &
+	Hom\left(W(2) \otimes C_\bullet, \F_2 \right)^{\S_2} \arrow[d] \\
+	\left(C^\bullet \otimes C^\bullet\right)^{\S_2} \arrow[u]&
+	Hom\left(W(2)_{\S_2} \otimes C_\bullet, \F_2 \right) \arrow[d] \\
 	C^\bullet \arrow[u, "Double"] \arrow[r, dashed]&
-	Hom\left(W(2)_{\mathrm{S}_2}, C^\bullet\right) \\
+	Hom\left(W(2)_{\S_2}, C^\bullet\right) \\
 	\end{tikzcd}
 	\end{equation*}
 	
@@ -221,16 +237,15 @@
 	\vspace*{-2pt}
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep = tiny]
-	C^\bullet \otimes W(2)_{\mathrm{S}_2} \arrow[r] &[-10pt] C^\bullet \\
+	C^\bullet \otimes W(2)_{\S_2} \arrow[r] &[-10pt] C^\bullet \\
 	\alpha \otimes e_i \arrow[r, |->] & (\alpha \otimes \alpha)\Delta_i(-)
 	\end{tikzcd}
 	\end{equation*}
 	
 	\vspace*{-5pt}\pause
 	
-	\textcolor{pblue}{Take away:} The mod-2 homology of $\mathrm{S}_2$ defines operations on the mod-2 cohomology of spaces.
+	\textcolor{pblue}{Take away:} The mod-2 homology of $\S_2$ defines operations on the mod-2 cohomology of spaces.
 \end{frame}
-
 
 \begin{frame}[fragile]{Steenrod obstructions to commutativity}
 	The Steenrod squares are defined by reindexing the previous map
@@ -249,15 +264,14 @@
 	\pause \vspace{\baselineskip}
 	
 	The relevance of the cup-$i$ coproducts $\Delta_i$ goes beyond their use defining the $Sq^k$ operations.
-		
 \end{frame}
 
 
 \begin{frame}{The relevance of chain level Steenrod squares}
-	The explicit formulae for the cup-$i$ (co)products	
+	The explicit formulae for the cup-$i$ coproducts	
 	\begin{itemize}
 		\item Are used in the definition of action functionals in lattice models in quantum field theory (Kapustin, Thorngren), \pause
-		\item Are used in persistence (co)homology to extract finner information of data sets (MM--Tauzin), \pause
+		\item Are used in persistence homology to extract finer information of data sets (MM--Tauzin), \pause
 		\item Define the nerve of higher categories (MM), \pause
 		\item Can be axiomatically characterized in analogy to the axioms for Steenrod square (MM), \pause
 		\item Are used to construct effective chain approximation to spin bordism (Brumfiel--Morgan), \pause
@@ -268,24 +282,24 @@
 \end{frame}
 
 
-\begin{frame}{Higher diagonals and the homology of $\mathrm{S}_p$}
+\begin{frame}{Higher diagonals and the homology of $\S_p$}
 	What do we need to generalize the construction of Steenrod squares?
 	
 	\pause \vspace{10pt}
 	
 	\begin{enumerate}
-		\item Construct $\mathrm{S}_p$-equivariant maps
+		\item Construct $\S_p$-equivariant maps
 		\begin{equation*}
-		E\mathrm{S}_p \otimes C_\bullet \to C_\bullet^{\otimes p}
+		E\S_p \otimes C_\bullet \to C_\bullet^{\otimes p}
 		\end{equation*}
-		for $E\mathrm{S}_p$ a resolution of $\mathbb Z$ by free $\mathbb Z[\mathrm{S}_p]$-modules.
+		for $E\S_p$ a resolution of $\mathbb Z$ by free $\mathbb Z[\S_p]$-modules.
 		\vspace*{10pt} \pause
-		\item Identify chains in $E\mathrm{S}_p$ whose orbits in $(E\mathrm{S}_p)_{\mathrm{S}_p} = B\mathrm{S}_p$ represent mod-$p$ homology classes.
+		\item Identify chains in $E\S_p$ whose orbits in $(E\S_p)_{\S_p} = B\S_p$ represent mod-$p$ homology classes.
 	\end{enumerate}
 
 	\vspace*{10pt}\pause
 
-	The first step is systematized by the use of operads, which we describe next, and the second is simplified by the group theoretical fact that the mop-$p$ homology of $\mathrm{S}_p$ is detected by any cyclic subgroup of order $p$.
+	The first step is systematized by the use of operads, which we describe next, and the second is simplified by the group theoretical fact that the mop-$p$ homology of $\S_p$ is detected by any cyclic subgroup of order $p$.
 \end{frame}
 
 
@@ -301,7 +315,7 @@
 	
 	Is equipped the structure of an operad:
 	\begin{itemize}
-		\item A left action of $\mathrm{S}_r$ on $End^C(r)$,
+		\item A left action of $\S_r$ on $End^C(r)$,
 		\item Composition chain maps
 		\begin{equation*}
 		\begin{tikzcd}[column sep=small, row sep=tiny]
@@ -348,21 +362,21 @@
 	\pause
 
 	\begin{definition}
-		An $E_\infty$-operad $\mathcal R$ is one with each $\mathcal R(r)$ a resolution of $\mathbb Z$ by free $\mathbb Z[\mathrm{S}_r]$-modules
+		An $E_\infty$-operad $\mathcal R$ is one with each $\mathcal R(r)$ a resolution of $\mathbb Z$ by free $\mathbb Z[\S_r]$-modules
 	\end{definition}
 \end{frame}
 
 
 \begin{frame}[fragile]{Steenrod-Adem structures}
-	Now we use the fact that the mod-$p$ homology of $\mathrm{S}_p$ is detected by the inclusion $\langle \rho\ |\ \rho^p\rangle = \mathrm{C}_p \to \mathrm{S}_p$.
+	Now we use the fact that the mod-$p$ homology of $\S_p$ is detected by the inclusion $\langle \rho\ |\ \rho^p\rangle = \C_p \to \S_p$.
 	
 	\pause \vspace*{10pt}
 	
-	Let $\mathcal W(r)$ be the minimal resolution of $\mathbb{Z}$ by $\mathbb{Z}[\mathrm C_r]$ modules:
+	Let $\mathcal W(r)$ be the minimal resolution of $\mathbb{Z}$ by $\mathbb{Z}[\C_r]$ modules:
 	\begin{equation*}
 	\begin{tikzcd}[column sep=normal]
-	\mathbb{Z}[\mathrm C_r]\{e_0\} & \arrow[l, "\rho-1"'] \mathbb{Z}[\mathrm C_r]\{e_1\} &[-5pt] \arrow[l, "N"']
-	\mathbb{Z}[\mathrm C_r]\{e_2\} & \arrow[l, "\rho-1"'] \cdots
+	\mathbb{Z}[\C_r]\{e_0\} & \arrow[l, "\rho-1"'] \mathbb{Z}[\C_r]\{e_1\} &[-5pt] \arrow[l, "N"']
+	\mathbb{Z}[\C_r]\{e_2\} & \arrow[l, "\rho-1"'] \cdots
 	\end{tikzcd}
 	\end{equation*}
 	with $N = 1+\rho+\cdots+\rho^{r-1}$, and $\mathcal{W} = \left\{\mathcal{W}(r)\right\}_{r \geq 1}$.
@@ -382,6 +396,76 @@
 	\end{equation*}		
 \end{frame}
 
+
+\begin{frame}{The operad $\M$}
+	
+	The coproduct and product generators are: \vspace*{-5pt}
+	\begin{equation*}
+	\begin{tikzpicture}[scale=.5]
+	\draw (0,0)--(0,.75);
+	\draw (0,0)--(.5,-.5);
+	\draw (0,0)--(-.5,-.5);
+	\node[scale=.5] at (-.5,-.75){1};
+	\node[scale=.5] at (.5,-.75){2};
+	\end{tikzpicture}
+	\qquad
+	\begin{tikzpicture}[scale=.5]
+	\draw (0,0)--(0,-.75);
+	\draw (0,0)--(.5,.5);
+	\draw (0,0)--(-.5,.5);
+	\node[scale=.5] at (-.5,.75){1};
+	\node[scale=.5] at (.5,.75){2};
+	\end{tikzpicture}
+	\vspace*{-10pt}
+	\end{equation*}
+	directed from top to bottom.
+	
+	\pause \vspace*{10pt}
+	
+	The $\S_r$-module $\M_n(r)$ is the free module generated by all ``graftings" of these generators of the form \vspace*{-15pt}
+	\begin{equation*}
+	\begin{tikzpicture}[scale=.75]
+	\draw (-.5,1)--(.5,1)--(.5,0)--(-.5,0)--(-.5,1);
+	\node[scale=.75] at (0,.5){$\Gamma$};
+	\draw (0,1)--(0,1.35);
+	\draw (-.5,0)--(-.5,-.25);
+	\node[scale=.5] at (-.5,-.5){1};
+	\draw (.5,0)--(.5,-.25);
+	\node[scale=.75] at (.5,-.5){$r$};
+	\node[scale=.75] at (0,-.5){$\cdots$};
+	\end{tikzpicture}
+	\vspace*{-10pt}
+	\end{equation*}
+	with $n$-copies of the product. \pause These copies inherit a total order and the boundary map is obtained by removing their incoming strands in order.
+	\textcolor{pblue}{Example:}
+	\begin{equation*}
+	\begin{tikzpicture}[scale=.35]
+	\draw (1,3.7) to (1,3); 
+	\draw (1,3) to [out=205, in=90] (0,0);
+	\draw [shorten >= 0cm] (.6,2.73) to [out=-100, in=90] (2,0);
+	\draw [shorten >= .15cm] (1,3) to [out=-25, in=30, distance=1.1cm] (1,1.5);
+	\draw [shorten <= .1cm] (1,1.5) to [out=210, in=20] (0,1);
+	
+	\draw[->] (4,2) to (5,2);
+	\end{tikzpicture}
+	\qquad %%%%%%%%%%
+	\begin{tikzpicture}[scale=.35]
+	\draw (1,3.7) to (1,3); 
+	\draw (1,3) to [out=205, in=90] (.6,2.73);
+	\draw [shorten >= 0cm] (.6,2.73) to [out=-100, in=90] (2,0);
+	\draw [shorten >= .15cm] (1,3) to [out=-25, in=30, distance=1.1cm] (1,1.5);
+	\draw [shorten <= .1cm] (1,1.5) to [out=210, in=90] (0,0);
+	
+	\draw (3.2,2) to (3.8,2);
+	\end{tikzpicture}
+	\quad %%%%%%%%%%
+	\begin{tikzpicture}[scale=.35]
+	\draw (1,3.7) to [out=-90, in=45] (.6,2.73); 
+	\draw (.6,2.73) to [out=225, in=90] (0,0);
+	\draw [shorten >= 0cm] (.6,2.73) to [out=-100, in=90] (2,0);
+	\end{tikzpicture}
+	\end{equation*}
+\end{frame}
 
 \section{Examples}
 
