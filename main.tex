@@ -520,9 +520,60 @@
 \end{frame}
 
 
-\begin{frame}{Steenrod $(r,i)$-products on spaces}
-	content...
+\begin{frame}[fragile]{Steenrod $(r,i)$-products on spaces}
+	Now that we have preferred cycles in $\M(p)$ representing the mod-$p$ homology of $\S_p$, how do we choose maps $C_\bullet \to C_\bullet^{\otimes p}$ for them?
+	\begin{equation*}
+	\begin{tikzcd}[column sep=small, row sep=tiny]
+	r = 2 \ \colon &[-10pt] e_i \arrow[r, |->] & \Delta_i \\
+	r > 2 \ \colon & e_i \arrow[r, |->] & ?
+	\end{tikzcd}
+	\end{equation*}
+	
+	\pause
+	
+	We just say where the generators go:
+	\begin{equation*}
+	\begin{tikzcd}[row sep = small]
+	& \mathrm{Simplicial} & \mathrm{Cubical} \\
+	\begin{tikzpicture}[scale=.5]
+	\draw (0,0)--(0,.75);
+	\draw (0,0)--(.5,-.5);
+	\draw (0,0)--(-.5,-.5);
+	\end{tikzpicture}
+	& \mathrm{Alexander}\mathrm{Whitney} & \mathrm{Serre} \\
+	\begin{tikzpicture}[scale=.5]
+	\draw (0,0)--(0,-.75);
+	\draw (0,0)--(.5,.5);
+	\draw (0,0)--(-.5,.5);
+	\end{tikzpicture}
+	& \mathrm{Join} & \mathrm{Chen}
+	\end{tikzcd}
+	\end{equation*}	
 \end{frame}
+
+
+%\begin{frame}{Steenrod $(r,i)$-products on spaces}
+%	Alexander-Whitney diagonal:
+%	\begin{equation*}
+%	\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q].
+%	\end{equation*}
+%	Join chain map:
+%	\begin{equation*}
+%	\left[v_0, \dots, v_p \right] \ast \left[v_{p+1}, \dots, v_q\right] = \begin{cases} \pm \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+%	0 & \text{ if not}, \end{cases}
+%	\end{equation*}
+%	Serre diagonal:
+%	\begin{equation*}	
+%	\Delta (x_1 \otimes \cdots \otimes x_n) = 	
+%	\sum \pm \left( x_1^{(1)} \otimes \cdots \otimes x_n^{(1)} \right) \otimes 	
+%	\left( x_1^{(2)} \otimes \cdots \otimes x_n^{(2)} \right),	
+%	\end{equation*}
+%	Chen interated integral:
+%	\begin{align*}
+%	(x_1 \otimes \cdots \otimes x_n) \ast (y_1 \otimes \cdots \otimes y_n) =
+%	(-1)^{|x|} \sum_{i=1}^n x_{<i} \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i})y_{>i},
+%	\end{align*}
+%\end{frame}
 
 
 \section{Examples}
