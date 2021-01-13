@@ -1,4 +1,4 @@
-\documentclass[10pt,t]{beamer}
+\documentclass[10pt,t]{beamer} % handout
 \usetheme{Heverlee}
 
 \usepackage{tikz}
@@ -122,14 +122,10 @@
 	\vspace*{10pt}\pause
 	
 	\textcolor{pblue}{Can it be made to be?}
-	
-	
-
-
 \end{frame}
 
 
-\begin{frame}{Steenrod's obstructions to commutativity}
+\begin{frame}{Steenrod's symmetry corrections}
 	In 1947, Steenrod published his seminal paper introducing the square operations through an effective construction of homotopies correcting the lack of symmetry of $\Delta$ (denoted $\Delta_0 = $ from now on).
 
 	\vspace*{15pt} \pause
@@ -150,7 +146,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{Steenrod's obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod's symmetry corrections}
 	The cup-$1$ coproduct
 	\begin{equation*}
 	\Delta_1 [0, \dots, n] = \sum_{i<j} \pm [0, \dots, i, j, \dots, n] \otimes [i, \dots, j]
@@ -180,7 +176,7 @@
 \end{frame}
 	
 
-\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod squares}
 	Using the $\F_2$-duality functor
 	\begin{equation*}
 	\begin{tikzcd}
@@ -190,7 +186,7 @@
 	\end{equation*}
 \end{frame}
 %%%%%%%%%%%%%
-\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod squares}
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
@@ -201,7 +197,7 @@
 	\addtocounter{framenumber}{-1}
 \end{frame}
 %%%%%%%%%%%%%
-\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod squares}
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
@@ -214,7 +210,7 @@
 	\addtocounter{framenumber}{-1}
 \end{frame}
 %%%%%%%%%%%%%
-\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod squares}
 	Using the $\F_2$-duality functor and passing to fix points, we have a chain map 
 	\begin{equation*}
 	\begin{tikzcd}
@@ -229,7 +225,7 @@
 	
 	\vspace*{-20pt}\pause
 	
-	By adjuntion, we obtain a chain map
+	By adjuntion, we obtain a linear map
 	\vspace*{-2pt}
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep = tiny]
@@ -240,10 +236,10 @@
 	
 	\vspace*{-5pt}\pause
 	
-	\textcolor{pblue}{Take away:} The mod-2 homology of $\S_2$ defines operations on the mod-2 cohomology of spaces.
+	descending to mod 2 homology. \pause \textcolor{pblue}{Take away:} The mod-2 homology of $\S_2$ defines operations on the mod-2 cohomology of spaces.
 \end{frame}
 
-\begin{frame}[fragile]{Steenrod obstructions to commutativity}
+\begin{frame}[fragile]{Steenrod squares}
 	The Steenrod squares are defined by reindexing the previous map
 	\begin{equation*}
 	\begin{tikzcd}[row sep=tiny, column sep=tiny]
@@ -263,13 +259,15 @@
 \end{frame}
 
 
+\section{The relevance of chain level Steenrod squares}
+
 \begin{frame}{The relevance of chain level Steenrod squares}
 	The explicit formulae for the cup-$i$ coproducts	
 	\begin{itemize}
 		\item Are used in the definition of action functionals in lattice models in quantum field theory (Kapustin, Thorngren), \pause
 		\item Are used in persistence homology to extract finer information of data sets (MM--Tauzin), \pause
-		\item Define the nerve of higher categories (MM), \pause
 		\item Can be axiomatically characterized in analogy to the axioms for Steenrod square (MM), \pause
+		\item Define the nerve of higher categories (MM), \pause
 		\item Are used to construct effective chain approximation to spin bordism (Brumfiel--Morgan), \pause
 		\item Are used to construct mod-2 operations on Khovanov homology (Cantero-Moran), \pause
 		\item Can be used to construct cochains enforcing the Cartan (MM) and Adem (Brumfiel--MM--Morgan) relations,
@@ -303,8 +301,10 @@
 \end{frame}
 
 
+\section{Operads and their coalgebras}
+
 \begin{frame}[fragile]{Canonical example of operad}
-	Let $C$ be a chain complex, Consider the set
+	Let $C$ be a chain complex, consider the set
 	\begin{equation*}
 	End^C = \left\{Hom(C, C^{\otimes r})\right\}_{r \geq 1}.
 	\end{equation*}
@@ -355,7 +355,7 @@
 	\end{equation*}
 	
 	\pause
-	Recall that we want free resolutions at every prime arity.
+	Recall that we want free resolutions.
 
 	\pause
 
@@ -381,7 +381,7 @@
 	
 	\pause \vspace*{10pt}
 	
-	A \textcolor{pblue}{Steenrod-Adem structure} on an $E_\infty$-operad $\mathcal R$ is an arity-wise equivariant quasi-isomorphism $\mathcal W \to \mathcal R$ \pause, and
+	A \textcolor{pblue}{Steenrod-Adem structure} on an $E_\infty$-operad $\mathcal R$ is an equivariant quasi-isomorphism $\mathcal W \to \mathcal R$ \pause, and
 	
 	\vspace*{10pt}
 	
@@ -518,7 +518,9 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{Steenrod $(r,i)$-products on spaces}
+\section{Chain level Steenrod operations for spaces}
+
+\begin{frame}[fragile]{Steenrod $(r,i)$-coproducts on spaces}
 	Now that we have preferred cycles in $\M(p)$ representing the mod-$p$ homology of $\S_p$, how do we choose maps $C_\bullet \to C_\bullet^{\otimes p}$ for them?
 	\begin{equation*}
 	\begin{tikzcd}[column sep=small, row sep=tiny]
@@ -588,7 +590,7 @@
 \end{frame}
 
 
-\begin{frame}{Steenrod $(r,i)$-products on spaces}
+\begin{frame}{Steenrod $(r,i)$-coproducts on spaces}
 	
 	For example: \vspace*{-20pt}
 	\begin{center}
@@ -677,15 +679,15 @@
 	P_s, \beta P_s \colon H^\bullet(-;\F_p) \to H^\bullet(-;\F_p).
 	\end{equation*}
 	
+	\pause
+	
 	Hyperlink to interactive examples:
 	
 	\vspace*{5pt}
-		
 	\qquad \href{https://comch.readthedocs.io/en/latest/}{\beamergotobutton{ComCH}}
 	
 	\vspace*{0pt}
-	
-	\qquad \href{https://mybinder.org/v2/gh/ammedmar/comch/master?filepath=notebooks\%2Fsteenrod_operations.ipynb}{\Large{\beamergotobutton{Steenrod}}}
+	\qquad \href{https://mybinder.org/v2/gh/ammedmar/comch/master?filepath=notebooks\%2Fsteenrod_operations.ipynb}{\beamergotobutton{Steenrod}}
 		
 \end{frame}
 
